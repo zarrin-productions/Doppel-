@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zarrin Productions × Doppel</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --slate: #2e3d45;
+    --gold: #e5aa21;
+    --blue: #2B5FEA;
+    --offwhite: #f5f7f9;
+    --dark: #1a2530;
+    --mid: #4a5c66;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--offwhite);
+    color: var(--slate);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--slate);
+    color: white;
+    padding: 80px 60px 90px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0.06;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 40%;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: var(--blue);
+    opacity: 0.08;
+  }
+
+  .hero-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-bottom: 40px;
+  }
+
+  .wordmark {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 16px;
+  }
+
+  .wordmark span {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 5vw, 68px);
+    font-weight: 900;
+    line-height: 1.05;
+    max-width: 820px;
+    margin-bottom: 28px;
+    letter-spacing: -1px;
+  }
+
+  .hero h1 em {
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 56px;
+  }
+
+  .stats-row {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-num {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* SECTION BASE */
+  section {
+    padding: 80px 60px;
+  }
+
+  .section-tag {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  h2 {
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+
+  .section-intro {
+    font-size: 16px;
+    color: var(--mid);
+    line-height: 1.75;
+    max-width: 640px;
+    margin-bottom: 56px;
+  }
+
+  /* INTRO BLOCK */
+  .intro {
+    background: white;
+    border-left: 4px solid var(--gold);
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .intro-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--mid);
+    margin-bottom: 20px;
+  }
+
+  .intro-text p strong {
+    color: var(--slate);
+    font-weight: 700;
+  }
+
+  .cred-box {
+    background: var(--slate);
+    color: white;
+    padding: 40px;
+    border-radius: 4px;
+  }
+
+  .cred-box h3 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+
+  .cred-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .cred-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .cred-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .cred-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .cred-detail {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+  }
+
+  /* SERVICES */
+  .services {
+    background: var(--offwhite);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .service-card {
+    background: white;
+    padding: 36px 32px;
+    border-radius: 4px;
+    border-top: 3px solid transparent;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .service-card:hover {
+    border-top-color: var(--gold);
+    transform: translateY(-3px);
+  }
+
+  .service-card.highlight {
+    border-top-color: var(--blue);
+    background: var(--slate);
+    color: white;
+  }
+
+  .service-icon {
+    font-size: 28px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .service-card h3 {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: -0.2px;
+  }
+
+  .service-card.highlight h3 {
+    color: var(--gold);
+  }
+
+  .service-card p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--mid);
+  }
+
+  .service-card.highlight p {
+    color: rgba(255,255,255,0.6);
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 20px;
+  }
+
+  .tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    background: var(--offwhite);
+    color: var(--mid);
+  }
+
+  .service-card.highlight .tag {
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* FULL SERVICE */
+  .fullservice {
+    background: white;
+  }
+
+  .fs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--offwhite);
+    border: 1px solid var(--offwhite);
+  }
+
+  .fs-item {
+    background: white;
+    padding: 36px 32px;
+  }
+
+  .fs-item h3 {
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    color: var(--slate);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .fs-item h3 .fs-icon {
+    font-size: 20px;
+  }
+
+  .fs-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .fs-list li {
+    font-size: 12.5px;
+    color: var(--mid);
+    line-height: 1.55;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .fs-list li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  /* WHY US */
+  .why {
+    background: var(--slate);
+    color: white;
+  }
+
+  .why h2 { color: white; }
+  .why .section-intro { color: rgba(255,255,255,0.55); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .why-item {
+    background: var(--slate);
+    padding: 40px;
+  }
+
+  .why-num {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--gold);
+    opacity: 0.3;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .why-item h3 {
+    font-size: 17px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: white;
+  }
+
+  .why-item p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* WORK */
+  .work {
+    background: var(--offwhite);
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .work-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: pointer;
+    background: var(--slate);
+  }
+
+  .work-card img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    opacity: 0.75;
+    display: block;
+    transition: opacity 0.3s;
+    background: var(--slate);
+    min-height: 180px;
+  }
+
+  .work-card:hover img { opacity: 0.5; }
+
+  .work-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 24px;
+    background: linear-gradient(0deg, rgba(30,45,55,0.95) 0%, transparent 100%);
+  }
+
+  .work-type {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .work-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 4px;
+  }
+
+  .work-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+  }
+
+  .play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 52px; height: 52px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .work-card:hover .play-btn { opacity: 1; }
+
+  .play-btn::after {
+    content: '';
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 8px 0 8px 14px;
+    border-color: transparent transparent transparent var(--slate);
+    margin-left: 3px;
+  }
+
+  .work-card { cursor: pointer; }
+
+  /* VIDEO MODAL */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-overlay.active { display: flex; }
+
+  .modal-inner {
+    width: 92%;
+    max-width: 960px;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: -44px; right: 0;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  .modal-close:hover { opacity: 1; }
+
+  .modal-video {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: none;
+    background: black;
+  }
+
+  /* TOOLKIT — editing and LMS only */
+  .toolkit {
+    background: white;
+  }
+
+  .tool-groups {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .tool-group {
+    background: var(--offwhite);
+    padding: 32px;
+    border-radius: 4px;
+  }
+
+  .tool-group h3 {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+  }
+
+  .tools-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tool-chip {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    background: white;
+    color: var(--slate);
+    border-radius: 2px;
+  }
+
+  /* CTA */
+  .cta {
+    background: var(--blue);
+    color: white;
+    text-align: center;
+    padding: 100px 60px;
+  }
+
+  .cta h2 {
+    color: white;
+    max-width: 680px;
+    margin: 0 auto 20px;
+    font-size: clamp(30px, 4vw, 52px);
+  }
+
+  .cta p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.65);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.35);
+    padding: 32px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  footer .wordmark-foot {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  footer .wordmark-foot span { color: var(--gold); font-style: italic; }
+
+  @media (max-width: 900px) {
+    section { padding: 60px 28px; }
+    .hero { padding: 60px 28px 70px; }
+    .intro-grid, .services-grid, .why-grid, .work-grid, .tool-groups, .fs-grid { grid-template-columns: 1fr; }
+    .stats-row { gap: 28px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wordmark">ZARRIN <span>PRODUCTIONS</span></div>
+  <div class="hero-label">Prepared for · Matt Kaneb · Doppel</div>
+  <h1>The <em>creative team</em> built for cybersecurity content.</h1>
+  <p class="hero-sub">Zarrin Productions is a full-service marketing and video production agency. We work with technology companies to produce video content across every channel and format they need, from security training modules to performance ad creative, social content, paid media, and beyond.</p>
+  <div class="stats-row">
+    <div class="stat">
+      <span class="stat-num">300+</span>
+      <span class="stat-label">Videos Produced</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">8+</span>
+      <span class="stat-label">AI Tools in Workflow</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">2</span>
+      <span class="stat-label">Degrees in Your Space</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">1</span>
+      <span class="stat-label">Embedded Partner</span>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <span class="section-tag">Who We Are</span>
+  <h2>Not a vendor. An embedded creative team.</h2>
+  <div class="intro-grid">
+    <div class="intro-text">
+      <p>Zarrin Productions is a full-service marketing and video production agency. We work with technology and cybersecurity companies to produce video content across every channel and format they need, from security training modules to performance ad creative, social content, and broader marketing services including paid media, SEO, outreach, and brand strategy.</p>
+      <p>What makes us different is the rare combination our founder brings to every project. <strong>A Master's in Cybersecurity and a Bachelor's in Digital Marketing and E-commerce</strong> means we do not just understand your product, we understand your audience, your threat landscape, and how to make complex concepts land clearly for non-technical learners and buyers.</p>
+      <p>We have also worked as university-level instructors. When we structure training content, we bring both instructional design discipline and production craft to the same table. No hand-offs. No translation errors between a subject matter expert and a production team that does not understand the material.</p>
+    </div>
+    <div class="cred-box">
+      <h3>Founder Credentials</h3>
+      <div class="cred-item">
+        <span class="cred-icon">🎓</span>
+        <div>
+          <div class="cred-title">M.S. Cybersecurity</div>
+          <div class="cred-detail">Deep technical fluency in the exact domain Doppel operates in. We get the concepts right before a single frame is produced.</div>
+        </div>
+      </div>
+      <div class="cred-item">
+        <span class="cred-icon">📊</span>
+        <div>
+          <div class="cred-title">B.S. Digital Marketing and E-commerce</div>
+          <div class="cred-detail">Every piece of content we produce is built with distribution, audience behavior, and conversion in mind.</div>
+        </div>
+      </div>
+      <div class="cred-item">
+        <span class="cred-icon">🏛️</span>
+        <div>
+          <div class="cred-title">Former University Instructor</div>
+          <div class="cred-detail">Instructional clarity is not something we outsource. It is how we were trained to communicate.</div>
+        </div>
+      </div>
+      <div class="cred-item">
+        <span class="cred-icon">⚡</span>
+        <div>
+          <div class="cred-title">Full Agency, Not a Freelancer</div>
+          <div class="cred-detail">A production team with no single-person bottlenecks. We scale with your content volume.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO PRODUCTION SERVICES -->
+<section class="services">
+  <span class="section-tag">Video Production</span>
+  <h2>Every video format Doppel needs, under one roof.</h2>
+  <p class="section-intro">We are not a single-service shop. As Doppel's content needs grow across channels, we grow with you.</p>
+  <div class="services-grid">
+    <div class="service-card highlight">
+      <span class="service-icon">🛡️</span>
+      <h3>Security and Compliance Training</h3>
+      <p>We build security training libraries from the ground up. Instructional scripting, module structure, video production, motion graphics, and assessment content, all optimized for corporate learner retention.</p>
+      <div class="service-tags">
+        <span class="tag">Module Production</span>
+        <span class="tag">Instructional Design</span>
+        <span class="tag">Course Scripting</span>
+        <span class="tag">LMS Ready</span>
+      </div>
+    </div>
+    <div class="service-card highlight">
+      <span class="service-icon">🎯</span>
+      <h3>Ad Creative and Performance Video</h3>
+      <p>Fast, direct, pattern-interrupting ad creative built for paid campaigns. We produce platform-specific video assets that communicate your security value proposition clearly to buyers who are not waiting around.</p>
+      <div class="service-tags">
+        <span class="tag">Meta Ads</span>
+        <span class="tag">YouTube Pre-Roll</span>
+        <span class="tag">LinkedIn Video</span>
+        <span class="tag">A/B Variants</span>
+      </div>
+    </div>
+    <div class="service-card highlight">
+      <span class="service-icon">📱</span>
+      <h3>Social Media Video Content</h3>
+      <p>Consistent, on-brand short-form and long-form social video for LinkedIn, YouTube, and short-form platforms. We handle scripting, production, and editing at a cadence that keeps your brand visible in the feed.</p>
+      <div class="service-tags">
+        <span class="tag">LinkedIn</span>
+        <span class="tag">YouTube</span>
+        <span class="tag">Reels</span>
+        <span class="tag">TikTok</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🖥️</span>
+      <h3>Platform Explainer Videos</h3>
+      <p>We take technically complex products and translate them into concise, engaging video that a customer or prospect can fully grasp in under two minutes. Clarity is the skill. We have built it for years.</p>
+      <div class="service-tags">
+        <span class="tag">Product Demos</span>
+        <span class="tag">Onboarding Video</span>
+        <span class="tag">Feature Explainers</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🎙️</span>
+      <h3>Brand and Thought Leadership</h3>
+      <p>Video content that positions Doppel's team and expertise in front of the right audiences. Interview-style content, talking-head series, and documentary-style brand storytelling.</p>
+      <div class="service-tags">
+        <span class="tag">Founder Content</span>
+        <span class="tag">Expert Series</span>
+        <span class="tag">Brand Story</span>
+        <span class="tag">Testimonials</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🤖</span>
+      <h3>Production at Scale</h3>
+      <p>We run an integrated production workflow that allows us to produce high volumes of content without sacrificing quality or accuracy. AI avatar presenters, voiceover, motion graphics, and more.</p>
+      <div class="service-tags">
+        <span class="tag">AI Avatars</span>
+        <span class="tag">High Volume</span>
+        <span class="tag">Fast Turnaround</span>
+        <span class="tag">Motion Graphics</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL SERVICE MARKETING -->
+<section class="fullservice">
+  <span class="section-tag">Beyond Video</span>
+  <h2>The full marketing operation, if you need it.</h2>
+  <p class="section-intro">Video is the core. But Zarrin also operates as a full-service marketing partner across every channel that matters to a growing technology company.</p>
+  <div class="fs-grid">
+    <div class="fs-item">
+      <h3><span class="fs-icon">📣</span> Social Media Management</h3>
+      <ul class="fs-list">
+        <li>Platform management across LinkedIn, Instagram, Facebook, YouTube and TikTok</li>
+        <li>Monthly and weekly content calendars</li>
+        <li>Static creative and graphic design for all platforms</li>
+        <li>Stories, Reels sequencing and post scheduling</li>
+        <li>Campaign launches and product announcement content</li>
+        <li>Community management and DM handling</li>
+        <li>Influencer outreach and coordination</li>
+      </ul>
+    </div>
+    <div class="fs-item">
+      <h3><span class="fs-icon">💰</span> Paid Advertising and Media Buying</h3>
+      <ul class="fs-list">
+        <li>Meta, Google, TikTok and YouTube ad management</li>
+        <li>Full funnel strategy from awareness to conversion</li>
+        <li>Unlimited ad concepts and creative testing</li>
+        <li>Media buying strategy and budget scaling</li>
+        <li>Ad creative production included</li>
+        <li>Weekly optimisation and performance reviews</li>
+        <li>Analytics and monthly reporting</li>
+      </ul>
+    </div>
+    <div class="fs-item">
+      <h3><span class="fs-icon">🔍</span> SEO and Content Marketing</h3>
+      <ul class="fs-list">
+        <li>Full technical, on-page and off-page SEO</li>
+        <li>Keyword research and competitive gap analysis</li>
+        <li>SEO blog articles and long-form content</li>
+        <li>Backlink campaigns and domain authority building</li>
+        <li>Google Business Profile management</li>
+        <li>Weekly analytics and ranking reports</li>
+      </ul>
+    </div>
+    <div class="fs-item">
+      <h3><span class="fs-icon">📧</span> Cold Outreach and Lead Generation</h3>
+      <ul class="fs-list">
+        <li>Cold email sequence writing and follow-up campaigns</li>
+        <li>Lead scraping, list building and data cleaning</li>
+        <li>G Suite warmup and outreach software setup</li>
+        <li>LinkedIn outreach automation and connection campaigns</li>
+        <li>Response management and CRM integration</li>
+        <li>Full cold prospecting pipeline management</li>
+      </ul>
+    </div>
+    <div class="fs-item">
+      <h3><span class="fs-icon">🌐</span> Website Development and Management</h3>
+      <ul class="fs-list">
+        <li>WordPress, Webflow, Shopify, Wix and Kajabi builds</li>
+        <li>Custom design, theme setup and brand implementation</li>
+        <li>Landing page design and conversion optimisation</li>
+        <li>Speed optimisation and technical performance</li>
+        <li>Ongoing monthly updates and management</li>
+        <li>Domain configuration and server setup</li>
+      </ul>
+    </div>
+    <div class="fs-item">
+      <h3><span class="fs-icon">🗂️</span> Strategy and Creative Direction</h3>
+      <ul class="fs-list">
+        <li>Dedicated strategist assigned to your brand</li>
+        <li>Content strategy and editorial planning</li>
+        <li>Brand identity and messaging frameworks</li>
+        <li>Launch roadmaps for products and campaigns</li>
+        <li>Quarterly brand and growth reviews</li>
+        <li>Direct access to the team, no account managers</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why">
+  <span class="section-tag" style="color: var(--gold);">Why Zarrin</span>
+  <h2>Four reasons this is the right fit for Doppel.</h2>
+  <p class="section-intro">Any production studio can make video. Here is what makes our work relevant to what your team is building.</p>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-num">01</div>
+      <h3>We speak your domain fluently</h3>
+      <p>A Master's in Cybersecurity means we understand what Doppel does at a technical level. We do not need a week of hand-holding before we can write a script that accurately represents your product or the threat landscape it operates in.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">02</div>
+      <h3>We own the entire production pipeline</h3>
+      <p>From instructional design and scripting to production, editing, motion graphics, and delivery. No handoffs to outside vendors. No translation errors between teams. What you brief is what gets built.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">03</div>
+      <h3>We produce at volume without losing quality</h3>
+      <p>Building a security training library is not a one-video project. We have structured our workflow to handle high-volume content production with consistent quality, pacing, and instructional clarity across every module.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">04</div>
+      <h3>We grow with your content needs</h3>
+      <p>Training library today. Ad creative next quarter. Social content after that. We are built to function as an embedded creative partner across every channel, not a vendor you re-brief from scratch every time a new need surfaces.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="work">
+  <span class="section-tag">Our Work</span>
+  <h2>See what we produce.</h2>
+  <p class="section-intro">A selection of relevant work spanning cybersecurity, healthcare training, platform education, and production at scale.</p>
+  <div class="work-grid">
+    <div class="work-card" onclick="openVideo('https://drive.google.com/file/d/1qMDmZxEXXM0kcC0J-2iOQZN6fKD-UJR0/preview', 'AI Avatar Educational Production Sample')">
+      <img src="https://drive.google.com/thumbnail?id=1qMDmZxEXXM0kcC0J-2iOQZN6fKD-UJR0&sz=w1280-h720" alt="AI Avatar Educational Content" onerror="this.style.minHeight='220px'">
+      <div class="play-btn"></div>
+      <div class="work-overlay">
+        <div class="work-type">AI Avatar and Educational Content</div>
+        <div class="work-title">AI Avatar Educational Production Sample</div>
+        <div class="work-desc">Our avatar presenter workflow showing scalable educational content production</div>
+      </div>
+    </div>
+    <div class="work-card" onclick="openVideo('https://drive.google.com/file/d/1DMMHJruwF2LoJ_hF2AGhKq3dkxYiK-60/preview', 'Cybersecurity Platform Ad')">
+      <img src="https://drive.google.com/thumbnail?id=1DMMHJruwF2LoJ_hF2AGhKq3dkxYiK-60&sz=w1280-h720" alt="Security Platform Ad Creative" onerror="this.style.minHeight='220px'">
+      <div class="play-btn"></div>
+      <div class="work-overlay">
+        <div class="work-type">Security Platform Ad Creative</div>
+        <div class="work-title">Cybersecurity Platform Ad</div>
+        <div class="work-desc">Cinematic storytelling applied to a cybersecurity product, simplifying complex technical concepts for a non-technical audience</div>
+      </div>
+    </div>
+    <div class="work-card" onclick="openVideo('https://drive.google.com/file/d/1sVMio5ufDEuzwaIeLr9K_lljaD1xvXqD/preview', 'Patient Care Training Modules')">
+      <img src="https://drive.google.com/thumbnail?id=1sVMio5ufDEuzwaIeLr9K_lljaD1xvXqD&sz=w1280-h720" alt="Healthcare Training Content" onerror="this.style.minHeight='220px'">
+      <div class="play-btn"></div>
+      <div class="work-overlay">
+        <div class="work-type">Healthcare Training and Course Content</div>
+        <div class="work-title">Patient Care Training Modules</div>
+        <div class="work-desc">Instructional material structured for clarity, pacing, and learner comprehension in a high-stakes educational context</div>
+      </div>
+    </div>
+    <div class="work-card" onclick="openVideo('https://drive.google.com/file/d/13Mk-cpiVoLYOK3coLYGhzQ5G6zJmIrEK/preview', 'Platform and Education Video')">
+      <img src="https://drive.google.com/thumbnail?id=13Mk-cpiVoLYOK3coLYGhzQ5G6zJmIrEK&sz=w1280-h720" alt="Platform Explainer Video" onerror="this.style.minHeight='220px'">
+      <div class="play-btn"></div>
+      <div class="work-overlay">
+        <div class="work-type">Platform Explainer Video</div>
+        <div class="work-title">Platform and Education Video</div>
+        <div class="work-desc">How we take a technically complex product and communicate its core value clearly to customers and prospects</div>
+      </div>
+    </div>
+    <div class="work-card" onclick="openVideo('https://drive.google.com/file/d/1ASOsRF7bR1PyWfK0acpeDk6JXGIxcPZc/preview', 'Thought Leadership Production Sample')">
+      <img src="https://drive.google.com/thumbnail?id=1ASOsRF7bR1PyWfK0acpeDk6JXGIxcPZc&sz=w1280-h720" alt="Thought Leadership Content" onerror="this.style.minHeight='220px'">
+      <div class="play-btn"></div>
+      <div class="work-overlay">
+        <div class="work-type">Thought Leadership and LinkedIn Content</div>
+        <div class="work-title">Thought Leadership Production Sample</div>
+        <div class="work-desc">Brand and expert positioning content produced for platforms like LinkedIn, built to establish authority and drive engagement</div>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+
+<!-- TOOLKIT — editing and LMS only -->
+<section class="toolkit">
+  <span class="section-tag">Production Stack</span>
+  <h2>The tools behind the work.</h2>
+  <p class="section-intro">An integrated production workflow built for quality, speed, and scale.</p>
+  <div class="tool-groups">
+    <div class="tool-group">
+      <h3>Editing and Production</h3>
+      <div class="tools-list">
+        <span class="tool-chip">Adobe Premiere Pro</span>
+        <span class="tool-chip">Adobe After Effects</span>
+        <span class="tool-chip">Adobe Audition</span>
+        <span class="tool-chip">Adobe Photoshop</span>
+        <span class="tool-chip">Adobe Illustrator</span>
+        <span class="tool-chip">DaVinci Resolve</span>
+        <span class="tool-chip">Descript</span>
+        <span class="tool-chip">Camtasia</span>
+        <span class="tool-chip">CapCut Pro</span>
+        <span class="tool-chip">Canva AI</span>
+        <span class="tool-chip">Figma</span>
+        <span class="tool-chip">HeyGen</span>
+        <span class="tool-chip">Synthesia</span>
+        <span class="tool-chip">Kling AI</span>
+        <span class="tool-chip">Runway ML</span>
+        <span class="tool-chip">ElevenLabs</span>
+        <span class="tool-chip">Midjourney</span>
+        <span class="tool-chip">Loom</span>
+      </div>
+    </div>
+    <div class="tool-group">
+      <h3>Course Authoring and LMS</h3>
+      <div class="tools-list">
+        <span class="tool-chip">Articulate Rise</span>
+        <span class="tool-chip">Storyline 360</span>
+        <span class="tool-chip">Adobe Captivate</span>
+        <span class="tool-chip">Lectora</span>
+        <span class="tool-chip">iSpring Suite</span>
+        <span class="tool-chip">Teachable</span>
+        <span class="tool-chip">Kajabi</span>
+        <span class="tool-chip">Thinkific</span>
+        <span class="tool-chip">Learnworlds</span>
+        <span class="tool-chip">Podia</span>
+        <span class="tool-chip">TalentLMS</span>
+        <span class="tool-chip">Moodle</span>
+        <span class="tool-chip">Canvas LMS</span>
+        <span class="tool-chip">Docebo</span>
+        <span class="tool-chip">SCORM</span>
+        <span class="tool-chip">xAPI</span>
+        <span class="tool-chip">AICC</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM WORK -->
+<section style="background: var(--offwhite); padding: 80px 60px;">
+  <div style="background: var(--slate); border-radius: 4px; padding: 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; overflow: hidden;">
+    <div style="position: absolute; top: -80px; right: -80px; width: 320px; height: 320px; border-radius: 50%; background: var(--gold); opacity: 0.05;"></div>
+    <div>
+      <span style="font-size: 10px; font-weight: 800; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 16px;">Beyond the List</span>
+      <h2 style="color: white; font-size: clamp(26px, 3vw, 40px); margin-bottom: 20px;">We also do custom work.</h2>
+      <p style="font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.8;">Everything on this page represents what we do most often. But some of the best work we have done started with a conversation that did not fit a standard category. If Doppel has a content need that is not listed here, we would rather talk about it than pass on it.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 24px 28px;">
+        <div style="font-size: 13px; font-weight: 700; color: white; margin-bottom: 6px;">Have a format in mind we have not covered?</div>
+        <div style="font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6;">Bring it to the conversation. If it involves content, creative strategy, or production of any kind, we have likely done something close to it.</div>
+      </div>
+      <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 24px 28px;">
+        <div style="font-size: 13px; font-weight: 700; color: white; margin-bottom: 6px;">Need something built from scratch?</div>
+        <div style="font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6;">We are comfortable working from a brief, a loose idea, or nothing at all. We can help scope it, structure it, and produce it end to end.</div>
+      </div>
+      <div style="background: rgba(229,170,33,0.1); border: 1px solid rgba(229,170,33,0.25); border-radius: 4px; padding: 24px 28px;">
+        <div style="font-size: 13px; font-weight: 700; color: var(--gold); margin-bottom: 6px;">The short version</div>
+        <div style="font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6;">If it is content, we can probably do it. Let us talk.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Looking forward to the conversation, Matt.</h2>
+  <p>We are glad Ji made the introduction. Happy to walk through more of our work and learn what Doppel's content team is building.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wordmark-foot">ZARRIN <span>PRODUCTIONS</span></div>
+  <div>Prepared for Doppel · Matt Kaneb · 2026</div>
+</footer>
+
+<!-- VIDEO MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal-inner">
+    <div class="modal-close" onclick="closeVideo()">✕ Close</div>
+    <div id="modalTitle" style="color: rgba(255,255,255,0.5); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;"></div>
+    <iframe
+      class="modal-video"
+      id="modalVideo"
+      src=""
+      allow="autoplay; fullscreen"
+      allowfullscreen
+    ></iframe>
+    <div style="margin-top: 12px; text-align: right;">
+      <a id="modalFallback" href="#" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.4); font-size: 11px; font-weight: 600; letter-spacing: 1px; text-decoration: none; text-transform: uppercase;">
+        Open in Google Drive ↗
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const fileIds = {
+    'https://drive.google.com/file/d/1qMDmZxEXXM0kcC0J-2iOQZN6fKD-UJR0/preview': '1qMDmZxEXXM0kcC0J-2iOQZN6fKD-UJR0',
+    'https://drive.google.com/file/d/1DMMHJruwF2LoJ_hF2AGhKq3dkxYiK-60/preview': '1DMMHJruwF2LoJ_hF2AGhKq3dkxYiK-60',
+    'https://drive.google.com/file/d/1sVMio5ufDEuzwaIeLr9K_lljaD1xvXqD/preview': '1sVMio5ufDEuzwaIeLr9K_lljaD1xvXqD',
+    'https://drive.google.com/file/d/13Mk-cpiVoLYOK3coLYGhzQ5G6zJmIrEK/preview': '13Mk-cpiVoLYOK3coLYGhzQ5G6zJmIrEK',
+    'https://drive.google.com/file/d/1ASOsRF7bR1PyWfK0acpeDk6JXGIxcPZc/preview': '1ASOsRF7bR1PyWfK0acpeDk6JXGIxcPZc'
+  };
+
+  function openVideo(src, title) {
+    document.getElementById('modalVideo').src = src;
+    document.getElementById('modalTitle').textContent = title;
+    const id = fileIds[src];
+    document.getElementById('modalFallback').href = 'https://drive.google.com/file/d/' + id + '/view?usp=sharing';
+    document.getElementById('modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVideo() {
+    document.getElementById('modalVideo').src = '';
+    document.getElementById('modal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function closeModal(e) {
+    if (e.target === document.getElementById('modal')) closeVideo();
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideo(); });
+</script>
+
+</body>
+</html>
